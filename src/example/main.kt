@@ -21,25 +21,26 @@ fun main(args: Array<String>) {
     }
 
     div {
-        add(+"fjdkls")
+        add(text("fjdkls"))
         add(div {
-            add(+"costam")
-            add(+"costamjeszcze")
+            add(text("costam"))
+            add(text("costamjeszcze"))
         })
         add(div {
-            add(+"costam")
-            add(+"costamjeszcze")
+            add(text("costam"))
+            add(text("costamjeszcze"))
         })
-        add_div {
-            add_div {
-                +"nowe1"
-                add_br()
-                add_text("nowe2")
+
+        adiv {
+            adiv {
+                atext("nowe1")
+                abr()
+                atext("nowe2")
             }
-            add_div {
-                add_text("nowe21")
-                add_br()
-                add_text("nowe22")
+            adiv {
+                atext("nowe21")
+                abr()
+                atext("nowe22")
             }
         }
     }.attachToDOM(jquery("#div666")[0])
