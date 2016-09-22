@@ -6,80 +6,89 @@ import pl.mareklangiewicz.nojs.*
 
 fun main(args: Array<String>) {
 
+
     // old basic stuff: just plain javascript:
-    val el = document.createElement("div")
+
+    val el = document.createElement("h2")
+    el.setAttribute("id", "hello")
     el.appendChild(document.createTextNode("Hello!"))
     document.body!!.appendChild(el)
 
-    val counterDiv = document.createElement("div")
+
+    // using simple kotlin class Counter:
+
+    val counterDiv = document.createElement("h3")
     val counterText = document.createTextNode("Counter!")
     counterDiv.appendChild(counterText)
     document.body!!.appendChild(counterDiv)
-
     val counter = Counter(counterText)
     counter.start()
-    jquery("#idbla").on("click") {
-        js("console.log('fjdskl');")
-        alert("fdjksl")
+
+
+    // trying jquery (click on hello)
+    jquery("#hello").on("click") {
+        js("console.log('hello clicked');")
+        alert("hello clicked")
     }
 
-    div {
-        + "fjdkls"
-        + div {
-            + "costam"
-            + "costamjeszcze"
+
+    // And now.. awesome stuff: our new DSL:
+
+    val tree = div {
+        +"Minimalist DSL in Kotlin for NOH library"
+        +div {
+            +"Hi there"
         }
-        + div {
-            + "costam"
-            + "costamjeszcze"
+        +div {
+            +"what else.. "
+            +br()
+            +i { +"some italic sentence.. " }
+            +br()
+            +strong { +"and some strong sentence! " }
         }
 
-        + div {
-            + div {
-                + "nowe1"
-                + br()
-                + "nowe2"
-            }
-            + div {
-                + "nowe21"
-                + br()
-                + "nowe22"
-            }
-            + p { + "some paragraph" }
-            + p { + "some other paragraph" }
-        }
+        +p { +"some paragraph" }
 
-        + "click on table"
-        + table {
-            css("border", "solid")
-            + th {
-                + td { + "head1" }
-                + td { + "head2" }
-                + td { + "head3" }
-            }
-            + tr {
-                + td { + "row1col1" }
-                + td { + "row1col2" }
-                + td { + "row1col3" }
-            }
-            + tr {
-                + td { + "row2col1" }
-                + td { + "row2col2" }
-                + td { + "row2col3" }
-            }
+        +p { +"some other paragraph" }
+
+        +"click on table"
+        +table {
             on("click") {
-                alert("click on table - event: $it")
                 println(it)
+                alert("click on table - event: $it")
+            }
+            css("border", "solid")
+            +tr {
+                +th { +"head1" }
+                +th { +"head2" }
+                +th { +"head3" }
+            }
+            +tr {
+                +td { +"row1col1" }
+                +td {
+                    css("border", "double")
+                    +"row1col2"
+                }
+                +td { +"row1col3" }
+            }
+            +tr {
+                +td {
+                    css("border", "solid")
+                    +"row2col1"
+                }
+                +td { +"row2col2" }
+                +td { +"row2col3" }
             }
         }
-        + p {
-            + img("http://mareklangiewicz.pl/face_slajd2.png") {}
+        +p {
+            +img("http://mareklangiewicz.pl/face_slajd2.png") {}
         }
-        + p {
-            + a("http://mareklangiewicz.pl") { + "Marek Langiewicz" }
+        +p {
+            +a("http://mareklangiewicz.pl") { +"Marek Langiewicz" }
         }
-        + p {
-            + a("mailto:marek.langiewicz@gmail.com") { + "email: marek.langiewicz@gmail.com" }
+        +p {
+            +a("mailto:marek.langiewicz@gmail.com") { +"email: marek.langiewicz@gmail.com" }
         }
-    }.attachToDOM(jquery("#div666")[0])
+    }
+    tree.attachToDOM(document.body!!)
 }
