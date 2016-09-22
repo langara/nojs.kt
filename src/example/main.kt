@@ -2,8 +2,7 @@ package example
 
 import kotlin.browser.document
 
-@native("$") val jquery : dynamic = noImpl
-@native val noh : dynamic = noImpl
+import pl.mareklangiewicz.nojs.*
 
 fun main(args: Array<String>) {
     val el = document.createElement("div")
@@ -20,4 +19,16 @@ fun main(args: Array<String>) {
     jquery("#idbla").on("click") {
         js("console.log('fjdskl');")
     }
+
+    div {
+        add(+"fjdkls")
+        add(div {
+            add(+"costam")
+            add(+"costamjeszcze")
+        })
+        add(div {
+            add(+"costam")
+            add(+"costamjeszcze")
+        })
+    }.attachToDOM(jquery("#div666")[0])
 }
