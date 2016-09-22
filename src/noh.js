@@ -361,6 +361,15 @@ noh.Node.prototype.add = function(node) {
 };
 
 /**
+ * Version of "add" prepared for pretty Kotlin wrapper
+ */
+noh.Node.prototype.unaryPlus = function(node) {
+  if(typeof(node) === "string")
+    node = noh.text(node);
+  return this.add(node);
+};
+
+/**
  * Removes last child node.
  * @return {!noh.Node} this (for chaining)
  */
