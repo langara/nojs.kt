@@ -30,5 +30,17 @@ fun main(args: Array<String>) {
             add(+"costam")
             add(+"costamjeszcze")
         })
+        add_div {
+            add_div {
+                +"nowe1"
+                add_br()
+                add_text("nowe2")
+            }
+            add_div {
+                add_text("nowe21")
+                add_br()
+                add_text("nowe22")
+            }
+        }
     }.attachToDOM(jquery("#div666")[0])
 }
