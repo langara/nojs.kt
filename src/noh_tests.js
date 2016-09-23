@@ -15,8 +15,8 @@
 
 
 /**
- * This function will insert tree with all tests to DOM element with id="noh_tests"
- * (if it finds one).If there is no such element, user can still insert it
+ * This function will insert tree with all tests to DOM img with id="noh_tests"
+ * (if it finds one).If there is no such img, user can still insert it
  * wherever he wants, using noh_tests() function by hand.
  */
 function noh_tests_init() {

@@ -170,6 +170,16 @@ fun generateSimpleKotlinViews(): NohElement {
                 "jsiv.imageUrl = \"http://placehold.it/250x250\"" to { jsiv.imageUrl = "http://placehold.it/250x250" },
                 "jsiv.imageUrl = \"http://placehold.it/150x350\"" to { jsiv.imageUrl = "http://placehold.it/150x350" }
         )
+        val udDiv = div {}
+        val jsud = JSUserDetailsView(udDiv)
+        jsud.loginView.text = "langara"
+        jsud.pictureView.imageUrl = "http://mareklangiewicz.pl/face_slajd2.png"
+        jsud.nameView.text = "Marek Langiewicz"
+        jsud.locationView.text = "Warszawa"
+        jsud.emailView.text = "marek.langiewicz@gmail.com"
+        +test("JSUserDetailView test", udDiv,
+                "jsud.pictureView.imageUrl = \"http://placehold.it/350x150\"" to { jsud.pictureView.imageUrl = "http://placehold.it/350x150" }
+        )
 
     }
     return root

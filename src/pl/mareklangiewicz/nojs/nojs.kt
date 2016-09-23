@@ -74,4 +74,5 @@ fun ol(vararg attrs: Pair<String, String>, init: NohElement.() -> Unit) = NohEle
 fun li(vararg attrs: Pair<String, String>, init: NohElement.() -> Unit) = NohElement("li").attrs(*attrs).apply(init)
 fun pre(vararg attrs: Pair<String, String>, init: NohElement.() -> Unit) = NohElement("pre").attrs(*attrs).apply(init)
 fun button(vararg attrs: Pair<String, String>, init: NohElement.() -> Unit) = NohElement("button").attrs(*attrs).apply(init)
+fun input(vararg attrs: Pair<String, String>, init: NohElement.() -> Unit) = NohElement("input").attrs(*attrs).apply(init)
 

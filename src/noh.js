@@ -9,7 +9,7 @@
  * <p>
  * It allows to create the html documents dynamically in pure JavaScript (with almost no html code at all)
  * It contains a kind of a wrappers to DOM hierarchy.
- * We have a function for every html element like: {@linkcode table, tr, td, div, span} etc..;
+ * We have a function for every html img like: {@linkcode table, tr, td, div, span} etc..;
  * but also we have functions that constructs many specialized and more complex elements that have some dynamic behaviour
  * implemented (like {@linkcode menu, oneof, bar, logger}, and more).
  * TODO: implement some srccode, some logger and some tester.
@@ -169,7 +169,7 @@ noh.TAGS = [
 /**
  * This helper function is used to parse the arguments in a clever way.
  * We want to get an object representing the attributes of created Element (like {@linkcode {href:"http://foo.com", "class":"some_css_class"..}})
- * and a list of children of new created element, where every child is a Node.
+ * and a list of children of new created img, where every child is a Node.
  * But we want the user to have the ability to provide this information in many different ways.
  * So this function have to guess for example:
  * <ul>
@@ -383,7 +383,7 @@ noh.Node.prototype.splice = function() { throw new noh.NotSupportedError(); };
 
 
 /**
- * Attaches a node to given DOM root element
+ * Attaches a node to given DOM root img
  * @param {!Node} root (It's a DOM Node class (not noh.Node)
  * @return {!noh.Node} this (for chaining)
  */
@@ -393,7 +393,7 @@ noh.Node.prototype.attachToDOM = function(root) {
 };
 
 /**
- * Detaches a node from given DOM root element
+ * Detaches a node from given DOM root img
  * @param {!Node} root
  * @return {!noh.Node} this (for chaining)
  */
@@ -449,7 +449,7 @@ noh.Element = function(tag, var_args) {
 noh.Element.prototype = new noh.Node();
 
 /**
- * Sets an element's attribute
+ * Sets an img's attribute
  * @param {string} name
  * @param {string} value
  * @return {!noh.Element} this (for chaining)
@@ -473,7 +473,7 @@ noh.Element.prototype.css = function(name, value) {
 };
 
 /**
- * Attach an event handling function for one or more events to this element.
+ * Attach an event handling function for one or more events to this img.
  * (just a convenient shortcut for typical jQuery method invocation)
  * @see http://api.jquery.com/on/#on-events-selector-data-handlereventObject
  * @param {string} events One or more space separated events (usually its just one word like: "click")
@@ -486,7 +486,7 @@ noh.Element.prototype.on = function(events, handler) {
 };
 
 /**
- * Add one or more classes to element's "class" attribute
+ * Add one or more classes to img's "class" attribute
  * @param {string} aclass One or more space-separated classes to add to the class attribute
  * @return {!noh.Element} this (for chaining)
  */
@@ -508,7 +508,7 @@ noh.Element.prototype.toggleclass = function(aclass) {
 
 
 /**
- * Remove one or more classes from element's "class" attribute
+ * Remove one or more classes from img's "class" attribute
  * @param {string} aclass One or more space-separated classes to be removed from the class attribute
  * @return {!noh.Element} this (for chaining)
  */
@@ -531,7 +531,7 @@ noh.scroll = function(offset, opt_duration) {
 
 
 /**
- * Scrolls the page, so the element is on the top
+ * Scrolls the page, so the img is on the top
  * @param {number=} opt_duration Time in miliseconds determining how long the scrolling will run. Default is 1000
  * @return {!noh.Element} this (for chaining)
  */
@@ -586,7 +586,7 @@ noh.tablebar = function(var_args) {
 
 
 
-// Just a div element with style changed to clearly separate its content from the rest of the page.
+// Just a div img with style changed to clearly separate its content from the rest of the page.
 noh.sdiv = function(var_args) {
   return noh.div({style:"margin:10px; padding:10px; border:solid 2px"}, arguments);
 };
@@ -640,7 +640,7 @@ noh.ex.rainbow = function(len) {
 
 
 /**
- * Generates the pre element prepared for SyntaxHighlighter plugin
+ * Generates the pre img prepared for SyntaxHighlighter plugin
  * @see http://alexgorbatchev.com/SyntaxHighlighter/
  * @param {string} brush The SyntaxHighlighter brush to use (like "js" fo JavaScript)
  * @param {string} code The code to display.
@@ -651,11 +651,11 @@ noh.syntaxhl = function(brush, code) {
 };
 
 /**
- * This Element creates the "pre" html element with a source code of given function inside.
- * The "pre" element CSS "class" is set to match the SyntaxHighlighter requirements and
+ * This Element creates the "pre" html img with a source code of given function inside.
+ * The "pre" img CSS "class" is set to match the SyntaxHighlighter requirements and
  * can be easly coloured using that plugin.
  * @see {@link http://alexgorbatchev.com/SyntaxHighlighter|SyntaxHighlighter} The highlighting plugin.
- * @see index.html Examples of using this element and SyntaxHighlighter plugin.
+ * @see index.html Examples of using this img and SyntaxHighlighter plugin.
  * @param {function()} afunction The function which source code should be rendered.
  * @return {noh.Element} A new srccode Element.
  */
@@ -671,7 +671,7 @@ noh.srccode = function(afunction) {
  * "left" or "right" and "top" or "bottom" (but never: "left" and "right" or "top" and "bottom")
  * It will stick to given screen side automaticly (with some little margin)
  * and it can be swept away to nearest side using .hide() method; and brought back using the .show() method().
- * It should be under element with "smooth" class so it moves smoothly.
+ * It should be under img with "smooth" class so it moves smoothly.
  * If user fails to add some position related classes to it, he can still manage the overlay position by hand.
  * Note: it is a good idea for overlay's children to have CSS class "pretty" so it will get some pretty default styles
  * @param {...noh.AttrsAndNodes} var_args Attributes and children nodes.
@@ -747,7 +747,7 @@ noh.overlay = function(var_args) {
 
 
 /**
- * Makes given element sleepy. By default it is in "asleep" state (it has the "asleep" CSS class)
+ * Makes given img sleepy. By default it is in "asleep" state (it has the "asleep" CSS class)
  * If we wake it (method: wake) it will be awake (will have the "awake" CSS class) for some time.
  * Then it will fall asleep again (the "awake" CSS class is removed, and it gets "asleep" CSS class).
  * User can wake it again by invoking the "wake" method.
@@ -882,13 +882,13 @@ noh.blind = function(var_args) {
 noh.IOneOf = function() {};
 
 /**
- * Returns which element is selected (or -1 if none is selected)
+ * Returns which img is selected (or -1 if none is selected)
  * @return {number}
  */
 noh.IOneOf.prototype.selected = function() {};
 
 /**
- * Selects an element with given index (-1 means: do not select any element)
+ * Selects an img with given index (-1 means: do not select any img)
  * @param {number} idx
  * @return {!noh.IOneOf} this (for chaining)
  */
@@ -1006,7 +1006,7 @@ noh.details = function(var_args) {
  * It will be used to set three CSS properties: "width", "min-width", "max-width", so it can be string like "400px".
  * It can also be set to special value: "dynamic" or: "automatic",
  * and in that case it will be computed automaticly using the actual size of elements, when reel is shown and when it rotates.
- * The difference between "automatic" and "dynamic" is that "dynamic" take into account only visible element in every moment,
+ * The difference between "automatic" and "dynamic" is that "dynamic" take into account only visible img in every moment,
  * and "automatic" checks all elements every time (also hidden ones) (as a result "dynamic" is little more dynamic that "automatic")
  * @param {string|number} height A height of the reel. It should be set big enough, so elements don't overlap too much.
  * See param width for details.
@@ -1019,7 +1019,7 @@ noh.details = function(var_args) {
 noh.Reel = function(lines, width, height, var_args) {
   var an = noh.organize(arguments, 3);
   for(var i = 0; i < an.nodes.length; ++i) {
-    var element = noh.div(an.nodes[i]).addclass('noh reel element');
+    var element = noh.div(an.nodes[i]).addclass('noh reel img');
     an.nodes[i] = element;
   }
   noh.Element.call(this, "div", an.attrs, an.nodes);
@@ -1054,7 +1054,7 @@ noh.Reel.prototype = new noh.Element("div");
 noh.Reel.prototype.selected = function() { return this.selected_; };
 
 /**
- * Select given line (element at that line nr will always have CSS class "selected")
+ * Select given line (img at that line nr will always have CSS class "selected")
  * @param {number} nr Line nr to select.
  * @return {!noh.Reel} this (for chaining)
  */
@@ -1245,9 +1245,9 @@ noh.reel = function(lines, width, height, var_args) {
 noh.FancyOptions;
 
 /**
- * Makes given element more fancy.
+ * Makes given img more fancy.
  * It always add a "fancy" class (so we can define in CSS file what really is "fancy",
- * but it can also add some more fun javascript stuff to some elements (depending of the element type)
+ * but it can also add some more fun javascript stuff to some elements (depending of the img type)
  * you can enable/disable/configure different fancy features using "options" parameter.
  * @param {!noh.Element} element to modify
  * @param {noh.FancyOptions=} opt_options TODO: define some configuration options
@@ -1269,9 +1269,9 @@ noh.fancy = function(element, opt_options) {
 
 
 /**
- * Something like a simple "kbd" element, but it wraps urls in given text inside the appropriate "a" elements.
- * @param {string} atext Text to wrap inside kdb element.
- * @return {!noh.Element} kbd element with given text splitted to words; and with urls wrapped inside the a links
+ * Something like a simple "kbd" img, but it wraps urls in given text inside the appropriate "a" elements.
+ * @param {string} atext Text to wrap inside kdb img.
+ * @return {!noh.Element} kbd img with given text splitted to words; and with urls wrapped inside the a links
  */
 noh.ukbd = function(atext) {
   var words = atext.split(/\s+/);
@@ -1356,7 +1356,7 @@ noh.log.Little.prototype = new noh.Element("div");
 noh.log.Little.prototype.log = function(classes, data) { 
   if(this.length)
     this.rem(); // removes last (in this case only one) child.
-  var ukbd = noh.ukbd(noh.log.data2str(data)).addclass("noh log element").addclass(classes);
+  var ukbd = noh.ukbd(noh.log.data2str(data)).addclass("noh log img").addclass(classes);
   this.add(ukbd);
   return this;
 };

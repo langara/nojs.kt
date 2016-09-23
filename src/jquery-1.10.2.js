@@ -182,7 +182,7 @@ jQuery.fn = jQuery.prototype = {
 							return rootjQuery.find( selector );
 						}
 
-						// Otherwise, we inject the element directly into the jQuery object
+						// Otherwise, we inject the img directly into the jQuery object
 						this.length = 1;
 						this[0] = elem;
 					}
@@ -232,8 +232,8 @@ jQuery.fn = jQuery.prototype = {
 		return core_slice.call( this );
 	},
 
-	// Get the Nth element in the matched element set OR
-	// Get the whole matched element set as a clean array
+	// Get the Nth img in the matched img set OR
+	// Get the whole matched img set as a clean array
 	get: function( num ) {
 		return num == null ?
 
@@ -245,21 +245,21 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	// Take an array of elements and push it onto the stack
-	// (returning the new matched element set)
+	// (returning the new matched img set)
 	pushStack: function( elems ) {
 
-		// Build a new jQuery matched element set
+		// Build a new jQuery matched img set
 		var ret = jQuery.merge( this.constructor(), elems );
 
 		// Add the old object onto the stack (as a reference)
 		ret.prevObject = this;
 		ret.context = this.context;
 
-		// Return the newly-formed element set
+		// Return the newly-formed img set
 		return ret;
 	},
 
-	// Execute a callback for every element in the matched set.
+	// Execute a callback for every img in the matched set.
 	// (You can seed the arguments with an array of args, but this is
 	// only used internally.)
 	each: function( callback, args ) {
@@ -1319,7 +1319,7 @@ function markFunction( fn ) {
 }
 
 /**
- * Support testing using an element
+ * Support testing using an img
  * @param {Function} fn Passed the created div and expects a boolean result
  */
 function assert( fn ) {
@@ -1428,7 +1428,7 @@ function createPositionalPseudo( fn ) {
 
 /**
  * Detect xml
- * @param {Element|Object} elem An element or a document
+ * @param {Element|Object} elem An img or a document
  */
 isXML = Sizzle.isXML = function( elem ) {
 	// documentElement is verified for cases where it doesn't yet exist
@@ -1442,7 +1442,7 @@ support = Sizzle.support = {};
 
 /**
  * Sets document-related variables once based on the current document
- * @param {Element|Object} [doc] An element or document object to use to set the document
+ * @param {Element|Object} [doc] An img or document object to use to set the document
  * @returns {Object} Returns the current document
  */
 setDocument = Sizzle.setDocument = function( node ) {
@@ -1481,7 +1481,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		return !div.getAttribute("className");
 	});
 
-	/* getElement(s)By*
+	/* getImg(s)By*
 	---------------------------------------------------------------------- */
 
 	// Check if getElementsByTagName("*") returns only elements
@@ -1666,7 +1666,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Element contains another
 	// Purposefully does not implement inclusive descendent
-	// As in, an element does not contain itself
+	// As in, an img does not contain itself
 	contains = rnative.test( docElem.contains ) || docElem.compareDocumentPosition ?
 		function( a, b ) {
 			var adown = a.nodeType === 9 ? a.documentElement : a,
@@ -1708,7 +1708,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			if ( compare & 1 ||
 				(!support.sortDetached && b.compareDocumentPosition( a ) === compare) ) {
 
-				// Choose the first element that is related to our preferred document
+				// Choose the first img that is related to our preferred document
 				if ( a === doc || contains(preferredDoc, a) ) {
 					return -1;
 				}
@@ -2113,7 +2113,7 @@ Expr = Sizzle.selectors = {
 								}
 							}
 
-						// Use previously-cached element index if available
+						// Use previously-cached img index if available
 						} else if ( useCache && (cache = (elem[ expando ] || (elem[ expando ] = {}))[ type ]) && cache[0] === dirruns ) {
 							diff = cache[1];
 
@@ -2124,7 +2124,7 @@ Expr = Sizzle.selectors = {
 								(diff = nodeIndex = 0) || start.pop()) ) {
 
 								if ( ( ofType ? node.nodeName.toLowerCase() === name : node.nodeType === 1 ) && ++diff ) {
-									// Cache the index of each encountered element
+									// Cache the index of each encountered img
 									if ( useCache ) {
 										(node[ expando ] || (node[ expando ] = {}))[ type ] = [ dirruns, diff ];
 									}
@@ -2223,11 +2223,11 @@ Expr = Sizzle.selectors = {
 			};
 		}),
 
-		// "Whether an element is represented by a :lang() selector
-		// is based solely on the element's language value
+		// "Whether an img is represented by a :lang() selector
+		// is based solely on the img's language value
 		// being equal to the identifier C,
 		// or beginning with the identifier C immediately followed by "-".
-		// The matching of C against the element's language value is performed case-insensitively.
+		// The matching of C against the img's language value is performed case-insensitively.
 		// The identifier C does not have to be a valid language name."
 		// http://www.w3.org/TR/selectors/#lang-pseudo
 		"lang": markFunction( function( lang ) {
@@ -2294,7 +2294,7 @@ Expr = Sizzle.selectors = {
 		// Contents
 		"empty": function( elem ) {
 			// http://www.w3.org/TR/selectors/#empty-pseudo
-			// :empty is only affected by element nodes and content nodes(including text(3), cdata(4)),
+			// :empty is only affected by img nodes and content nodes(including text(3), cdata(4)),
 			//   not comment, processing instructions, or others
 			// Thanks to Diego Perini for the nodeName shortcut
 			//   Greater than "@" means alpha characters (specifically not starting with "#" or "?")
@@ -2478,7 +2478,7 @@ function addCombinator( matcher, combinator, base ) {
 		doneName = done++;
 
 	return combinator.first ?
-		// Check against closest ancestor/preceding element
+		// Check against closest ancestor/preceding img
 		function( elem, context, xml ) {
 			while ( (elem = elem[ dir ]) ) {
 				if ( elem.nodeType === 1 || checkNonElements ) {
@@ -2689,7 +2689,7 @@ function matcherFromTokens( tokens ) {
 				return setMatcher(
 					i > 1 && elementMatcher( matchers ),
 					i > 1 && toSelector(
-						// If the preceding token was a descendant combinator, insert an implicit any-element `*`
+						// If the preceding token was a descendant combinator, insert an implicit any-img `*`
 						tokens.slice( 0, i - 1 ).concat({ value: tokens[ i - 2 ].type === " " ? "*" : "" })
 					).replace( rtrim, "$1" ),
 					matcher,
@@ -2706,7 +2706,7 @@ function matcherFromTokens( tokens ) {
 }
 
 function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
-	// A counter to specify which element is currently being matched
+	// A counter to specify which img is currently being matched
 	var matcherCachedRuns = 0,
 		bySet = setMatchers.length > 0,
 		byElement = elementMatchers.length > 0,
@@ -2752,7 +2752,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 						matchedCount--;
 					}
 
-					// Lengthen the array for every element, matched or not
+					// Lengthen the array for every img, matched or not
 					if ( seed ) {
 						unmatched.push( elem );
 					}
@@ -2768,7 +2768,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				}
 
 				if ( seed ) {
-					// Reintegrate element matches to eliminate the need for sorting
+					// Reintegrate img matches to eliminate the need for sorting
 					if ( matchedCount > 0 ) {
 						while ( i-- ) {
 							if ( !(unmatched[i] || setMatched[i]) ) {
@@ -2813,7 +2813,7 @@ compile = Sizzle.compile = function( selector, group /* Internal Use Only */ ) {
 		cached = compilerCache[ selector + " " ];
 
 	if ( !cached ) {
-		// Generate a function of recursive functions that can be used to check each element
+		// Generate a function of recursive functions that can be used to check each img
 		if ( !group ) {
 			group = tokenize( selector );
 		}
@@ -3350,7 +3350,7 @@ jQuery.support = (function( support ) {
 	support.tbody = !div.getElementsByTagName("tbody").length;
 
 	// Make sure that link elements get serialized correctly by innerHTML
-	// This requires a wrapper element in IE
+	// This requires a wrapper img in IE
 	support.htmlSerialize = !!div.getElementsByTagName("link").length;
 
 	// Get the style information from getAttribute
@@ -3361,7 +3361,7 @@ jQuery.support = (function( support ) {
 	// (IE normalizes it by default)
 	support.hrefNormalized = a.getAttribute("href") === "/a";
 
-	// Make sure that element opacity exists
+	// Make sure that img opacity exists
 	// (IE uses filter instead)
 	// Use a regex to work around a WebKit issue. See #5145
 	support.opacity = /^0.5/.test( a.style.opacity );
@@ -3380,7 +3380,7 @@ jQuery.support = (function( support ) {
 	// Tests for enctype support on a form (#6743)
 	support.enctype = !!document.createElement("form").enctype;
 
-	// Makes sure cloning an html5 element does not cause problems
+	// Makes sure cloning an html5 img does not cause problems
 	// Where outerHTML is undefined, this still works
 	support.html5Clone = document.createElement("nav").cloneNode( true ).outerHTML !== "<:nav></:nav>";
 
@@ -3483,8 +3483,8 @@ jQuery.support = (function( support ) {
 		// Check if table cells still have offsetWidth/Height when they are set
 		// to display:none and there are still other visible table cells in a
 		// table row; if so, offsetWidth/Height are not reliable for use when
-		// determining if an element has been hidden directly using
-		// display:none (it is still safe to use offsets if a parent element is
+		// determining if an img has been hidden directly using
+		// display:none (it is still safe to use offsets if a parent img is
 		// hidden; don safety goggles and see bug #4512 for more information).
 		div.innerHTML = "<table><tr><td></td><td>t</td></tr></table>";
 		tds = div.getElementsByTagName("td");
@@ -3592,7 +3592,7 @@ function internalData( elem, name, data, pvt /* Internal Use Only */ ){
 	}
 
 	if ( !id ) {
-		// Only DOM nodes need a new unique ID for each element since their data
+		// Only DOM nodes need a new unique ID for each img since their data
 		// ends up in the global cache
 		if ( isNode ) {
 			id = elem[ internalKey ] = core_deletedIds.pop() || jQuery.guid++;
@@ -3780,7 +3780,7 @@ jQuery.extend({
 
 	// A method for determining if a DOM node can handle the data expando
 	acceptData: function( elem ) {
-		// Do not set data on non-element because it will not be cleared (#8335).
+		// Do not set data on non-img because it will not be cleared (#8335).
 		if ( elem.nodeType && elem.nodeType !== 1 && elem.nodeType !== 9 ) {
 			return false;
 		}
@@ -4193,7 +4193,7 @@ jQuery.fn.extend({
 					jQuery._data( this, "__className__", this.className );
 				}
 
-				// If the element has a class name or if we're passed "false",
+				// If the img has a class name or if we're passed "false",
 				// then remove the whole classname (if there was one, the above saved it).
 				// Otherwise bring back whatever was previously saved (if anything),
 				// falling back to the empty string if nothing was stored.
@@ -4754,7 +4754,7 @@ jQuery.event = {
 			handler.guid = jQuery.guid++;
 		}
 
-		// Init the element's event structure and main handler, if this is the first
+		// Init the img's event structure and main handler, if this is the first
 		if ( !(events = elemData.events) ) {
 			events = elemData.events = {};
 		}
@@ -4811,7 +4811,7 @@ jQuery.event = {
 
 				// Only use addEventListener/attachEvent if the special events handler returns false
 				if ( !special.setup || special.setup.call( elem, data, namespaces, eventHandle ) === false ) {
-					// Bind the global event handler to the element
+					// Bind the global event handler to the img
 					if ( elem.addEventListener ) {
 						elem.addEventListener( type, eventHandle, false );
 
@@ -4829,7 +4829,7 @@ jQuery.event = {
 				}
 			}
 
-			// Add to the element's handler list, delegates in front
+			// Add to the img's handler list, delegates in front
 			if ( selector ) {
 				handlers.splice( handlers.delegateCount++, 0, handleObj );
 			} else {
@@ -4844,7 +4844,7 @@ jQuery.event = {
 		elem = null;
 	},
 
-	// Detach an event or set of events from an element
+	// Detach an event or set of events from an img
 	remove: function( elem, types, handler, selector, mappedTypes ) {
 		var j, handleObj, tmp,
 			origCount, t, events,
@@ -4864,7 +4864,7 @@ jQuery.event = {
 			type = origType = tmp[1];
 			namespaces = ( tmp[2] || "" ).split( "." ).sort();
 
-			// Unbind all events (on this namespace, if provided) for the element
+			// Unbind all events (on this namespace, if provided) for the img
 			if ( !type ) {
 				for ( type in events ) {
 					jQuery.event.remove( elem, type + types[ t ], handler, selector, true );
@@ -5038,7 +5038,7 @@ jQuery.event = {
 					try {
 						elem[ type ]();
 					} catch ( e ) {
-						// IE<9 dies on focus/blur to hidden element (#1486,#12518)
+						// IE<9 dies on focus/blur to hidden img (#1486,#12518)
 						// only reproducible on winXP IE8 native, not IE9 in IE8 mode
 					}
 					jQuery.event.triggered = undefined;
@@ -5271,7 +5271,7 @@ jQuery.event = {
 						return false;
 					} catch ( e ) {
 						// Support: IE<9
-						// If we error on focus to hidden element (#1486, #12518),
+						// If we error on focus to hidden img (#1486, #12518),
 						// let .trigger() run the handlers
 					}
 				}
@@ -5349,7 +5349,7 @@ jQuery.removeEvent = document.removeEventListener ?
 		if ( elem.detachEvent ) {
 
 			// #8545, #7054, preventing memory leaks for custom events in IE6-8
-			// detachEvent needed property on element, by name of that event, to properly expose it to GC
+			// detachEvent needed property on img, by name of that event, to properly expose it to GC
 			if ( typeof elem[ name ] === core_strundefined ) {
 				elem[ name ] = null;
 			}
@@ -5799,7 +5799,7 @@ jQuery.fn.extend({
 		return this.pushStack( ret.length > 1 ? jQuery.unique( ret ) : ret );
 	},
 
-	// Determine the position of an element within
+	// Determine the position of an img within
 	// the matched set of elements
 	index: function( elem ) {
 
@@ -5813,9 +5813,9 @@ jQuery.fn.extend({
 			return jQuery.inArray( this[0], jQuery( elem ) );
 		}
 
-		// Locate the position of the desired element
+		// Locate the position of the desired img
 		return jQuery.inArray(
-			// If it receives a jQuery object, the first element is used
+			// If it receives a jQuery object, the first img is used
 			elem.jquery ? elem[0] : elem, this );
 	},
 
@@ -6105,7 +6105,7 @@ jQuery.fn.extend({
 			i = 0;
 
 		for ( ; (elem = this[i]) != null; i++ ) {
-			// Remove element nodes and prevent memory leaks
+			// Remove img nodes and prevent memory leaks
 			if ( elem.nodeType === 1 ) {
 				jQuery.cleanData( getAll( elem, false ) );
 			}
@@ -6156,7 +6156,7 @@ jQuery.fn.extend({
 
 				try {
 					for (; i < l; i++ ) {
-						// Remove element nodes and prevent memory leaks
+						// Remove img nodes and prevent memory leaks
 						elem = this[i] || {};
 						if ( elem.nodeType === 1 ) {
 							jQuery.cleanData( getAll( elem, false ) );
@@ -6184,7 +6184,7 @@ jQuery.fn.extend({
 			}),
 			i = 0;
 
-		// Make the changes, replacing each context element with the new content
+		// Make the changes, replacing each context img with the new content
 		this.domManip( arguments, function( elem ) {
 			var next = args[ i++ ],
 				parent = args[ i++ ];
@@ -6391,7 +6391,7 @@ function fixCloneNodeIssues( src, dest ) {
 		}
 
 		// This path appears unavoidable for IE9. When cloning an object
-		// element in IE9, the outerHTML strategy above is not sufficient.
+		// img in IE9, the outerHTML strategy above is not sufficient.
 		// If the src has innerHTML and the destination does not,
 		// copy the src.innerHTML into the dest.innerHTML. #10324
 		if ( jQuery.support.html5Clone && ( src.innerHTML && !jQuery.trim(dest.innerHTML) ) ) {
@@ -6400,7 +6400,7 @@ function fixCloneNodeIssues( src, dest ) {
 
 	} else if ( nodeName === "input" && manipulation_rcheckableType.test( src.type ) ) {
 		// IE6-8 fails to persist the checked state of a cloned checkbox
-		// or radio button. Worse, IE6-7 fail to give the cloned element
+		// or radio button. Worse, IE6-7 fail to give the cloned img
 		// a checked appearance if the defaultChecked value isn't also set
 
 		dest.defaultChecked = dest.checked = src.checked;
@@ -6486,7 +6486,7 @@ jQuery.extend({
 		if ( jQuery.support.html5Clone || jQuery.isXMLDoc(elem) || !rnoshimcache.test( "<" + elem.nodeName + ">" ) ) {
 			clone = elem.cloneNode( true );
 
-		// IE<=8 does not properly clone detached, unknown element nodes
+		// IE<=8 does not properly clone detached, unknown img nodes
 		} else {
 			fragmentDiv.innerHTML = elem.outerHTML;
 			fragmentDiv.removeChild( clone = fragmentDiv.firstChild );
@@ -6630,7 +6630,7 @@ jQuery.extend({
 		while ( (elem = nodes[ i++ ]) ) {
 
 			// #4087 - If origin and destination elements are the same, and this is
-			// that element, do not do anything
+			// that img, do not do anything
 			if ( selection && jQuery.inArray( elem, selection ) !== -1 ) {
 				continue;
 			}
@@ -6838,7 +6838,7 @@ function vendorPropName( style, name ) {
 
 function isHidden( elem, el ) {
 	// isHidden might be called from jQuery#filter function;
-	// in that case, element will be second argument
+	// in that case, img will be second argument
 	elem = el || elem;
 	return jQuery.css( elem, "display" ) === "none" || !jQuery.contains( elem.ownerDocument, elem );
 }
@@ -6858,7 +6858,7 @@ function showHide( elements, show ) {
 		values[ index ] = jQuery._data( elem, "olddisplay" );
 		display = elem.style.display;
 		if ( show ) {
-			// Reset the inline display of this element to learn if it is
+			// Reset the inline display of this img to learn if it is
 			// being hidden by cascaded rules or not
 			if ( !values[ index ] && display === "none" ) {
 				elem.style.display = "";
@@ -6866,7 +6866,7 @@ function showHide( elements, show ) {
 
 			// Set elements which have been overridden with display: none
 			// in a stylesheet to whatever the default browser style is
-			// for such an element
+			// for such an img
 			if ( elem.style.display === "" && isHidden( elem ) ) {
 				values[ index ] = jQuery._data( elem, "olddisplay", css_defaultDisplay(elem.nodeName) );
 			}
@@ -7145,7 +7145,7 @@ if ( window.getComputedStyle ) {
 
 		// If we're not dealing with a regular pixel number
 		// but a number that has a weird ending, we need to convert it to pixels
-		// but not position css attributes, as those are proportional to the parent element instead
+		// but not position css attributes, as those are proportional to the parent img instead
 		// and we can't measure the parent instead because it might trigger a "stacking dolls" problem
 		if ( rnumnonpx.test( ret ) && !rposition.test( name ) ) {
 
@@ -7262,7 +7262,7 @@ function getWidthOrHeight( elem, name, extra ) {
 	) + "px";
 }
 
-// Try to determine the default display value of an element
+// Try to determine the default display value of an img
 function css_defaultDisplay( nodeName ) {
 	var doc = document,
 		display = elemdisplay[ nodeName ];
@@ -7383,7 +7383,7 @@ jQuery(function() {
 			get: function( elem, computed ) {
 				if ( computed ) {
 					// WebKit Bug 13343 - getComputedStyle returns wrong value for margin-right
-					// Work around by temporarily setting element display to inline-block
+					// Work around by temporarily setting img display to inline-block
 					return jQuery.swap( elem, { "display": "inline-block" },
 						curCSS, [ elem, "marginRight" ] );
 				}
@@ -7628,7 +7628,7 @@ var
 try {
 	ajaxLocation = location.href;
 } catch( e ) {
-	// Use the href attribute of an A element
+	// Use the href attribute of an A img
 	// since IE will modify it given document.location
 	ajaxLocation = document.createElement( "a" );
 	ajaxLocation.href = "";
@@ -9657,8 +9657,8 @@ jQuery.fn.extend({
 			parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true );
 		}
 
-		// Subtract parent offsets and element margins
-		// note: when an element has margin: auto the offsetLeft and marginLeft
+		// Subtract parent offsets and img margins
+		// note: when an img has margin: auto the offsetLeft and marginLeft
 		// are the same in Safari causing offset.left to incorrectly be 0
 		return {
 			top:  offset.top  - parentOffset.top - jQuery.css( elem, "marginTop", true ),
@@ -9744,10 +9744,10 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 				}
 
 				return value === undefined ?
-					// Get width or height on the element, requesting but not forcing parseFloat
+					// Get width or height on the img, requesting but not forcing parseFloat
 					jQuery.css( elem, type, extra ) :
 
-					// Set width or height on the element
+					// Set width or height on the img
 					jQuery.style( elem, type, value, extra );
 			}, type, chainable ? margin : undefined, chainable, null );
 		};
@@ -9756,7 +9756,7 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 // Limit scope pollution from any deprecated API
 // (function() {
 
-// The number of elements contained in the matched element set
+// The number of elements contained in the matched img set
 jQuery.fn.size = function() {
 	return this.length;
 };
