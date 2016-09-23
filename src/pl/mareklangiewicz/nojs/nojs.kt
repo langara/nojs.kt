@@ -21,6 +21,8 @@ fun alert(msg: Any?) { window.alert(msg.toString()) }
     fun detachFromDOM(root: Node): NohNode
     operator fun NohNode.unaryPlus(): NohNode
     operator fun String.unaryPlus(): NohNode
+    var textContent: String // TODO: check it
+    val dom: Node
 }
 
 

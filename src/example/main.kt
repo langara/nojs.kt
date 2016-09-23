@@ -109,7 +109,7 @@ fun main(args: Array<String>) {
                         +td { +it.toString() }
                         +td { +Math.sin(it).toString() }
                         +td { +Math.cos(it).toString() }
-                        +td { +(it*it).toString() }
+                        +td { +(it * it).toString() }
                     }
                 }
             }
@@ -124,6 +124,44 @@ fun main(args: Array<String>) {
         +p {
             +a("mailto:marek.langiewicz@gmail.com") { +"email: marek.langiewicz@gmail.com" }
         }
+        +div("style" to "border: solid 1px; margin: 15px; padding: 15px;") {
+            +h3 { +"Simple kotlin views" }
+            +generateSimpleKotlinViews()
+
+        }
     }
     tree.attachToDOM(document.body!!)
+}
+
+
+fun test(name: String, content: NohNode, vararg actions: Pair<String, () -> Unit>): NohElement
+        = div("style" to "border: double; margin: 5px; padding: 5px;") {
+    +h4 { +name }
+    +div("style" to "border: solid 1px; margin: 10px; padding: 10px;") {
+        +content
+    }
+    +div {
+        for (action in actions)
+            +button {
+                +action.first
+                on("click") { action.second() }
+            }
+    }
+}
+
+fun generateSimpleKotlinViews(): NohElement {
+
+    val root = div {
+
+        val tvDiv = div { +"initial value" }
+        val jstv = JSTextView(tvDiv)
+        +test("JSTextView test", tvDiv,
+                "println(jstv.text)" to { println(jstv.text) },
+                "jstv.text = \"bla1\"" to { jstv.text = "bla1" },
+                "jstv.text = \"XXXX\"" to { jstv.text = "XXXX" },
+                "jstv.text = \"YYYY\"" to { jstv.text = "YYYY" }
+        )
+
+    }
+    return root
 }
