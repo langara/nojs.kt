@@ -6,15 +6,23 @@ import kotlin.dom.on
 
 class Counter(val el: Text) {
 
+    var started = false
+
     fun step(n: Int) {
         println(n)
         document.title = "Counter: ${n}"
         el.textContent = n.toString()
-        window.setTimeout({step(n+1)}, 1000)
+        if (started)
+            window.setTimeout({ step(n + 1) }, 1000)
     }
 
     fun start() {
+        started = true
         step(0)
+    }
+
+    fun stop() {
+        started = false
     }
 }
 

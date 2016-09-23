@@ -35,8 +35,23 @@ fun main(args: Array<String>) {
     // And now.. awesome stuff: our new DSL:
 
     val tree = div {
-        +"Minimalist DSL in Kotlin for NOH library"
         +div {
+            +"counter controls "
+            +button {
+                +"start"
+                on("click") {
+                    counter.start()
+                }
+            }
+            +button {
+                +"stop"
+                on("click") {
+                    counter.stop()
+                }
+            }
+        }
+        +h3("class" to "fancy") { +"Minimalist DSL in Kotlin for NOH library" }
+        +div("style" to "margin: 10px;") {
             +"Hi there"
         }
         +div {
@@ -79,6 +94,26 @@ fun main(args: Array<String>) {
                 +td { +"row2col2" }
                 +td { +"row2col3" }
             }
+        }
+        +h4("class" to "fancy") { +"some math computations" }
+        +p {
+            +table("style" to "border: double") {
+                +tr {
+                    +th { +"x" }.css("border", "solid 1px")
+                    +th { +"sin(x)" }.css("border", "solid 1px")
+                    +th { +"cos(x)" }.css("border", "solid 1px")
+                    +th { +"x*x" }.css("border", "solid 1px")
+                }
+                (1..20).map { it / 10.0 }.forEach {
+                    +tr {
+                        +td { +it.toString() }
+                        +td { +Math.sin(it).toString() }
+                        +td { +Math.cos(it).toString() }
+                        +td { +(it*it).toString() }
+                    }
+                }
+            }
+
         }
         +p {
             +img("http://mareklangiewicz.pl/face_slajd2.png") {}
