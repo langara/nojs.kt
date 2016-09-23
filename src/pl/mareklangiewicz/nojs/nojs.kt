@@ -23,6 +23,7 @@ fun alert(msg: Any?) { window.alert(msg.toString()) }
     operator fun String.unaryPlus(): NohNode
     var textContent: String // TODO: check it
     val dom: Node
+    fun getAttr(name: String): String
 }
 
 

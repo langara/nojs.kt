@@ -162,6 +162,15 @@ fun generateSimpleKotlinViews(): NohElement {
                 "jstv.text = \"YYYY\"" to { jstv.text = "YYYY" }
         )
 
+        val ivImg = img("http://placehold.it/350x150") {}
+        val jsiv = JSImageView(ivImg)
+        +test("JSImageView test", ivImg,
+                "println(jsiv.imageUrl)" to { println(jsiv.imageUrl) },
+                "jsiv.imageUrl = \"http://placehold.it/350x150\"" to { jsiv.imageUrl = "http://placehold.it/350x150" },
+                "jsiv.imageUrl = \"http://placehold.it/250x250\"" to { jsiv.imageUrl = "http://placehold.it/250x250" },
+                "jsiv.imageUrl = \"http://placehold.it/150x350\"" to { jsiv.imageUrl = "http://placehold.it/150x350" }
+        )
+
     }
     return root
 }

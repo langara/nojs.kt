@@ -1,5 +1,6 @@
 package example
 
+import pl.mareklangiewicz.nojs.NohElement
 import pl.mareklangiewicz.nojs.NohNode
 
 class JSTextView(val element: NohNode) : TextView {
@@ -10,3 +11,11 @@ class JSTextView(val element: NohNode) : TextView {
         }
 }
 
+class JSImageView(val element: NohElement) : ImageView {
+    override var imageUrl: String
+        get() = element.getAttr("src")
+        set(value) {
+            element.attr("src", value)
+        }
+
+}

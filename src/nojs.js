@@ -6,3 +6,6 @@ noh.Node.prototype.unaryPlus = function(node) {
   return this.add(node);
 };
 
+noh.Node.prototype.getAttr = function(name) {
+  return this.$.attr(name)
+};
