@@ -177,9 +177,28 @@ fun generateSimpleKotlinViews(): NohElement {
         jsud.nameView.text = "Marek Langiewicz"
         jsud.locationView.text = "Warszawa"
         jsud.emailView.text = "marek.langiewicz@gmail.com"
+
         +test("JSUserDetailView test", udDiv,
                 "jsud.pictureView.imageUrl = \"http://placehold.it/350x150\"" to { jsud.pictureView.imageUrl = "http://placehold.it/350x150" }
         )
+
+
+
+        val udDiv2 = div {}
+        val jsud2 = JSUserDetailsView(udDiv2)
+        jsud2.loginView.text = "langara"
+        jsud2.pictureView.imageUrl = "http://mareklangiewicz.pl/face_slajd2.png"
+        jsud2.nameView.text = "Marek Langiewicz"
+        jsud2.locationView.text = "Warszawa"
+        jsud2.emailView.text = "marek.langiewicz@gmail.com"
+
+
+        val ovly = noh.overlay().add(udDiv2.addclass("smooth").addclass("pretty")).addclass("right bottom").addclass("smooth").addclass("pretty")
+
+        +test("Overlay test", ovly,
+                "show" to { ovly.show() },
+                "hide" to { ovly.hide() }
+        ).addclass("smooth")
 
     }
     return root
