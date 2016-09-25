@@ -1,2 +1,3 @@
-out/
+# I include out dir temporarily to track generated js code changes
+# out/
 .idea/
